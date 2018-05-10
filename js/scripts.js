@@ -26,6 +26,7 @@ var pickElem = document.getElementById('js-playerPickElement');
 var resultsElem = document.getElementById('js-resultsTableElement');
 var endGameElem = document.getElementById('js-endGameElement');
 
+
 //wyswietlanie elementow na stronie w zaleznosci od stanu gry
 function setGameElements() {
   switch(gameState) {
@@ -40,7 +41,7 @@ function setGameElements() {
         pickElem.style.display = 'none';
         resultsElem.style.display = 'none';
         endGameElem.style.display = 'block';
-        // break;
+        break;
     case 'notStarted':
     default:
         newGameElem.style.display = 'block';
@@ -66,7 +67,7 @@ function newGame() {
     gameState = 'started';
     setGameElements();
 
-    // playerNameElem.innerHTML = player.name;
+    playerNameElem.innerHTML = player.name;
     // setGamePoints();
   }
 }
@@ -82,8 +83,7 @@ var playerPickElem = document.getElementById('js-playerPick'),
     computerPickElem = document.getElementById('js-computerPick'),
     playerResultElem = document.getElementById('js-playerResult'),
     computerResultElem = document.getElementById('js-computerResult');
-
-
+    
 //logika i przyznawanie punktow
 function checkRoundWinner(playerPick, computerPick) {
   playerResultElem.innerHTML = computerResultElem.innerHTML = '';
@@ -104,7 +104,7 @@ function checkRoundWinner(playerPick, computerPick) {
         playerResultElem.innerHTML = "Win!";
         player.score++;
         playerPointsElem.innerHTML = player.score;
-        if (player.score===10){
+        if (player.score===4){
             console.log('10');
             endGame();
         }
@@ -112,12 +112,19 @@ function checkRoundWinner(playerPick, computerPick) {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
         computerPointsElem.innerHTML = computer.score;
-        if (computer.score===10){
+        if (computer.score===20){
             console.log('10');
             endGame();
         }
     }
 
+    var theWinnerIs = document.getElementById('js-theWinnerIs');
+    if(winnerIs=='player') {
+        theWinnerIs.innerHTML=player.name;
+    }
+    else if(winnerIs=='computer') {
+        theWinnerIs.innerHTML="Computer";
+    }
 }
 
 //umieszczenie wyniku na stronie
@@ -140,6 +147,14 @@ function playerPick(playerPick) {
 function endGame() { 
     gameState = 'ended';
     setGameElements();
+    // var winnerIs="player";
+    // var theWinnerIs = document.getElementById('js-theWinnerIs');
+    // if(winnerIs=='player') {
+    //     theWinnerIs.innerHTML="Player";
+    // }
+    // else if(winnerIs=='computer') {
+    //     theWinnerIs.innerHTML="Computer";
+    // }
 }
 
 // var playAgainBtn = document.getElementById('js-playAgainButton');
