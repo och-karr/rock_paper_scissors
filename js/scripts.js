@@ -26,7 +26,6 @@ var pickElem = document.getElementById('js-playerPickElement');
 var resultsElem = document.getElementById('js-resultsTableElement');
 var endGameElem = document.getElementById('js-endGameElement');
 
-
 //wyswietlanie elementow na stronie w zaleznosci od stanu gry
 function setGameElements() {
   switch(gameState) {
@@ -38,6 +37,7 @@ function setGameElements() {
         break;
     case 'ended':
         newGameBtn.innerText = 'Jeszcze raz';
+        newGameElem.style.display = 'block';
         pickElem.style.display = 'none';
         resultsElem.style.display = 'none';
         endGameElem.style.display = 'block';
@@ -72,7 +72,6 @@ function newGame() {
   }
 }
 
-
 //ustawianie losowego wyboru gracza
 function getComputerPick() {
   var possiblePicks = ['rock', 'paper', 'scissors'];
@@ -104,7 +103,7 @@ function checkRoundWinner(playerPick, computerPick) {
         playerResultElem.innerHTML = "Win!";
         player.score++;
         playerPointsElem.innerHTML = player.score;
-        if (player.score===4){
+        if (player.score===10){
             console.log('10');
             endGame();
         }
@@ -112,7 +111,7 @@ function checkRoundWinner(playerPick, computerPick) {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
         computerPointsElem.innerHTML = computer.score;
-        if (computer.score===20){
+        if (computer.score===10){
             console.log('10');
             endGame();
         }
@@ -137,7 +136,6 @@ function playerPick(playerPick) {
     checkRoundWinner(playerPick, computerPick);
 }
 
-
 // function setGamePoints() {
 //   playerPointsElem.innerHTML = player.score;
 //   computerPointsElem.innerHTML = computer.score;
@@ -147,14 +145,6 @@ function playerPick(playerPick) {
 function endGame() { 
     gameState = 'ended';
     setGameElements();
-    // var winnerIs="player";
-    // var theWinnerIs = document.getElementById('js-theWinnerIs');
-    // if(winnerIs=='player') {
-    //     theWinnerIs.innerHTML="Player";
-    // }
-    // else if(winnerIs=='computer') {
-    //     theWinnerIs.innerHTML="Computer";
-    // }
 }
 
 // var playAgainBtn = document.getElementById('js-playAgainButton');
