@@ -144,7 +144,6 @@ function playerPick(playerPick) {
 
 function endGame(winner) { 
     var theWinnerIs = document.getElementById('js-theWinnerIs');
-
     gameState = 'ended';
     setGameElements();
     
