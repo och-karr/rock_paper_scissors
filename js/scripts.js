@@ -64,6 +64,13 @@ function newGame() {
   player.name = prompt('Please enter your name', 'imię gracza');
   if (player.name) { //ustawiamy imie gracza
     player.score = computer.score = 0;
+    playerPointsElem.innerHTML=player.score;
+    computerPointsElem.innerHTML=computer.score;
+
+    playerPickElem.innerHTML = "";
+    computerPickElem.innerHTML = "";
+    playerResultElem.innerHTML = "";
+    computerResultElem.innerHTML = "";
     gameState = 'started';
     setGameElements();
 
@@ -146,9 +153,7 @@ function endGame(winner) {
     }
     else if(winner=='computer') {
         theWinnerIs.innerHTML="Computer";
-    }
-
-    
+    }    
 }
 
 // var playAgainBtn = document.getElementById('js-playAgainButton');
