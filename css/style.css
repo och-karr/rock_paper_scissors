@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(167, 226, 250);
+}
+
 .container {
     padding: 20px;
 }
