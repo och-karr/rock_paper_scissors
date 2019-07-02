@@ -61,8 +61,8 @@ var playerPointsElem = document.getElementById('js-playerPoints'),
 
 //funkcja uruchamiana po kliknieciu new game
 function newGame() {
-    player.name = prompt('Please enter your name', 'imię gracza');
-    if (player.name) { //ustawiamy imie gracza
+    player.name = prompt('Please enter your name', 'Player\'s name');
+    if (player.name) {
         player.score = computer.score = 0;
         playerPointsElem.innerHTML=player.score;
         computerPointsElem.innerHTML=computer.score;
@@ -75,7 +75,6 @@ function newGame() {
         setGameElements();
 
         playerNameElem.innerHTML = player.name;
-        // setGamePoints();
     }
 }
 
@@ -136,12 +135,6 @@ function checkRoundWinner(playerPick, computerPick) {
     }
 }
 
-// function setGamePoints() {
-//   playerPointsElem.innerHTML = player.score;
-//   computerPointsElem.innerHTML = computer.score;
-//   console.log(player.score);
-// }
-
 function endGame(winner) { 
     var theWinnerIs = document.getElementById('js-theWinnerIs');
     gameState = 'ended';
@@ -153,6 +146,3 @@ function endGame(winner) {
         theWinnerIs.innerHTML="Computer";
     }    
 }
-
-// var playAgainBtn = document.getElementById('js-playAgainButton');
-// playAgainBtn.addEventListener('click', newGame);

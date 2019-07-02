@@ -1,7 +1,13 @@
 body {
-    background-color: rgb(167, 226, 250);
+    background-color: rgb(204, 225, 233);
+    padding-top: 50px;
 }
 
 .container {
     padding: 20px;
+    min-width: 300px;
+}
+
+.btn {
+    margin: 5px;
 }
